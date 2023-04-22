@@ -3,8 +3,9 @@ import React, { useEffect, useState } from 'react';
 import { contentStyle, headerStyle, headerText } from '../LoanDetails/styles';
 import { Content, Footer, Header } from 'antd/es/layout/layout';
 import { footerStyle } from '../LandingPage/styles.js';
-import { useLocation } from 'react-router-dom';
-import { getBalanceSheet, getDecision } from '../../api/services';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { getBalanceSheet } from '../../api/services';
+import { Route as RouteName } from '../../navigation/Routes.js';
 
 const columns = [
   {
@@ -31,6 +32,7 @@ const columns = [
 
 const ViewDetails = () => {
   const { state } = useLocation();
+  const navigate = useNavigate();
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -62,9 +64,7 @@ const ViewDetails = () => {
                     ...state.data,
                     sheet: data
                   };
-                  getDecision(mapDecisionData)
-                    .then((response) => response.data)
-                    .then((data) => console.log('wews', data));
+                  navigate(RouteName.outcome, { state: { mapDecisionData } });
                 }}>
                 Submit Application
               </Button>
