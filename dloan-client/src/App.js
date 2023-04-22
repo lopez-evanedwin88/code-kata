@@ -1,12 +1,12 @@
 import React from 'react';
 import './App.css';
 import 'antd/dist/reset.css';
-import Home from './pages/LandingPage';
+import Navigation from './navigation';
 
 function App() {
   return (
     <div className="App">
-      <Home></Home>
+      <Navigation />
     </div>
   );
 }

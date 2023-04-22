@@ -14,10 +14,14 @@ import {
 import { Content } from 'antd/es/layout/layout.js';
 import Title from 'antd/es/typography/Title.js';
 import globalStyle from '../../theme/GlobalStyle.module.css';
+import { useNavigate } from 'react-router-dom';
+import { Route as RouteName } from '../../navigation/Routes.js';
 
 const { Header, Footer } = Layout;
 
 const Home = () => {
+  const navigate = useNavigate();
+
   return (
     <Space direction="vertical" style={{ width: '100%', height: '100%' }} size={[0, 64]}>
       <Layout>
@@ -38,7 +42,7 @@ const Home = () => {
           </Title>
           <div className={globalStyle.alignSelfCenter}>
             <Title className={globalStyle.colorPurple}>As Your Need. Always Flexible</Title>
-            <Button block style={applyBtn}>
+            <Button block style={applyBtn} onClick={() => navigate(RouteName.loanDetails)}>
               Click here to apply!
             </Button>
           </div>
