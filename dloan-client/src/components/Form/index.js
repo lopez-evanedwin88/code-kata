@@ -1,28 +1,19 @@
 import { Card, Space, Button, Form, Input, DatePicker, Select } from 'antd';
-import React from 'react';
+import React, { useState } from 'react';
 const { Option } = Select;
 
-const onFinish = (values) => {
-  console.log('Success:', values);
-};
+const DetailsForm = ({ onFinish }) => {
+  const [form, setForm] = useState({
+    name: '',
+    email: '',
+    contactNo: '',
+    businessName: '',
+    businessAddress: '',
+    yearEstablished: '',
+    loanAmount: '',
+    accountingProvider: ''
+  });
 
-const onFinishFailed = (errorInfo) => {
-  console.log('Failed:', errorInfo);
-};
-
-const onAccountingChange = (value) => {
-  switch (value) {
-    case 'xero':
-      //set xero as accounting provider
-      break;
-    case 'myob':
-      //set myob as accounting provider
-      break;
-    default:
-  }
-};
-
-const DetailsForm = () => {
   return (
     <Space direction="vertical" size="middle" style={{ display: 'flex', width: '60%' }}>
       <Card title="Start by telling us your business:" size="small">
@@ -32,34 +23,65 @@ const DetailsForm = () => {
           wrapperCol={{ span: 16 }}
           style={{ maxWidth: 700 }}
           initialValues={{ remember: true }}
-          onFinish={onFinish}
-          onFinishFailed={onFinishFailed}
+          onFinish={() => onFinish(form)}
           autoComplete="off">
           <Form.Item label="Name">
-            <Input />
+            <Input
+              onChange={(e) => {
+                setForm({ ...form, name: e.target.value });
+              }}
+            />
           </Form.Item>
           <Form.Item label="Email">
-            <Input />
+            <Input
+              onChange={(e) => {
+                setForm({ ...form, email: e.target.value });
+              }}
+            />
           </Form.Item>
           <Form.Item label="Contact No.">
-            <Input />
+            <Input
+              onChange={(e) => {
+                setForm({ ...form, contactNo: e.target.value });
+              }}
+            />
           </Form.Item>
           <Form.Item label="Business Name">
-            <Input />
+            <Input
+              onChange={(e) => {
+                setForm({ ...form, businessName: e.target.value });
+              }}
+            />
           </Form.Item>
           <Form.Item label="Business Address">
-            <Input />
+            <Input
+              onChange={(e) => {
+                setForm({ ...form, businessAddress: e.target.value });
+              }}
+            />
           </Form.Item>
           <Form.Item label="Year Established">
-            <DatePicker picker="year" style={{ width: '100%' }} />
+            <DatePicker
+              picker="year"
+              style={{ width: '100%' }}
+              onChange={(_, dateString) => {
+                setForm({ ...form, yearEstablished: dateString });
+              }}
+            />
           </Form.Item>
           <Form.Item label="Loan Amount">
-            <Input />
+            <Input
+              onChange={(e) => {
+                setForm({ ...form, loanAmount: e.target.value });
+              }}
+            />
           </Form.Item>
           <Form.Item label="Accounting Provider">
             <Select
               placeholder="Select a Accounting Provider"
-              onChange={onAccountingChange}
+              onChange={(value) => {
+                setForm({ ...form, accountingProvider: value });
+              }}
               allowClear>
               <Option value="xero">Xero</Option>
               <Option value="myob">MYOB</Option>
@@ -75,6 +97,10 @@ const DetailsForm = () => {
       </Card>
     </Space>
   );
+};
+
+DetailsForm.propTypes = {
+  onFinish: () => {}
 };
 
 export default DetailsForm;
