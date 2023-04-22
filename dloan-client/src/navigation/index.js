@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import Home from '../pages/LandingPage';
 import LoanDetails from '../pages/LoanDetails';
 import { Route as RouteName } from './Routes';
+import ViewDetails from '../pages/ViewDetails';
 
 const Navigation = () => (
   <>
@@ -10,6 +11,7 @@ const Navigation = () => (
       <Routes>
         <Route exact path={RouteName.home} element={<Home />} />
         <Route path={RouteName.loanDetails} element={<LoanDetails />} />
+        <Route path={RouteName.viewDetails} element={<ViewDetails />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </Router>

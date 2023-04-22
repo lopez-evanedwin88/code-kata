@@ -1,4 +1,5 @@
 export const Route = {
   home: '/',
-  loanDetails: '/loan-details'
+  loanDetails: '/loan-details',
+  viewDetails: '/view-details'
 };
