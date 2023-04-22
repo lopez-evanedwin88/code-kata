@@ -10,7 +10,6 @@ const Outcome = () => {
 
   useEffect(() => {
     if (outcome === null) {
-      console.log('wewskioii');
       getDecision(state.mapDecisionData)
         .then((response) => response.json())
         .then((data) => {
