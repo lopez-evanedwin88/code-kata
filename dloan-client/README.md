@@ -10,11 +10,20 @@ In the project directory (dloan-client),
 
 #### `npm install`
 
-To run project ~
+To run project for front-end and back-end~
 
 ### `npm start:all`
 
-Runs the app in the development mode.\
+For running front end only
+
+### `npm start`
+
+For running back-end only
+
+### `npm run node-server`
+
+
+The app runs in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 Open [http://localhost:8000](http://localhost:8000) to access server.
