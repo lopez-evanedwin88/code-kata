@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 router.get('/', (_, res) => {
-	res.send('decisonEngine?');
-})
+  res.send('decisonEngine?');
+});
 
 module.exports = router;
