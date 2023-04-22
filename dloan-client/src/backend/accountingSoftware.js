@@ -31,7 +31,7 @@ const data = {
   ]
 };
 
-router.get('/', (_, res) => {
+router.post('/', (_, res) => {
   res.setHeader('Content-Type', 'application/json');
   res.end(JSON.stringify(data));
 });
