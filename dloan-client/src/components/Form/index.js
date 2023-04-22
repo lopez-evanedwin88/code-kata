@@ -46,7 +46,10 @@ const DetailsForm = ({ onFinish }) => {
               }}
             />
           </Form.Item>
-          <Form.Item label="Business Name">
+          <Form.Item
+            label="Business Name"
+            name="businessName"
+            rules={[{ required: true, message: 'Please input your business name' }]}>
             <Input
               onChange={(e) => {
                 setForm({ ...form, businessName: e.target.value });
@@ -60,7 +63,10 @@ const DetailsForm = ({ onFinish }) => {
               }}
             />
           </Form.Item>
-          <Form.Item label="Year Established">
+          <Form.Item
+            label="Year Established"
+            name="yearEstablished"
+            rules={[{ required: true, message: 'Please input the established year' }]}>
             <DatePicker
               picker="year"
               style={{ width: '100%' }}
@@ -69,14 +75,20 @@ const DetailsForm = ({ onFinish }) => {
               }}
             />
           </Form.Item>
-          <Form.Item label="Loan Amount">
+          <Form.Item
+            label="Loan Amount"
+            name="loanAmount"
+            rules={[{ required: true, message: 'Please input loan amount' }]}>
             <Input
               onChange={(e) => {
                 setForm({ ...form, loanAmount: e.target.value });
               }}
             />
           </Form.Item>
-          <Form.Item label="Accounting Provider">
+          <Form.Item
+            label="Accounting Provider"
+            name="accountingProvider"
+            rules={[{ required: true, message: 'Please select accounting provider' }]}>
             <Select
               placeholder="Select a Accounting Provider"
               onChange={(value) => {
