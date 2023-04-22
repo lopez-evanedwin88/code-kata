@@ -2,15 +2,16 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
-
 ## Project Setup
 
 In the project directory (dloan-client),
 
 #### `npm install`
 
-To run project for front-end and back-end~
+
+## Available Scripts
+
+To run project for both front-end and back-end~
 
 ### `npm start:all`
 
